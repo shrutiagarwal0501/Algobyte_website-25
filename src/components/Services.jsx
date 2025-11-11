@@ -17,11 +17,15 @@ const Services = () => {
       opacity: 0,
       y: "-100%",
     },
-
     four: {
       opacity: 0,
       x: "100%",
     },
+  };
+
+  // ✅ No auth check anymore
+  const handleFormAccess = (formUrl) => {
+    window.open(formUrl, "_blank");
   };
 
   return (
@@ -33,32 +37,39 @@ const Services = () => {
           whileInView={animations.whileInView}
           initial={animations.one}
         >
-          <h2>Empowering </h2>
+          <h2>Empowering</h2>
           <h5>Users Every Day</h5>
         </motion.div>
+
         <motion.div
           className="serviceBox2"
           whileInView={animations.whileInView}
           initial={animations.twoAndThree}
+          onClick={() => handleFormAccess("YOUR_RESOURCES_FORM_URL")}
+          style={{ cursor: "pointer" }}
         >
           <AiFillIeCircle />
           <span>Resources</span>
         </motion.div>
+
         <motion.div
           className="serviceBox3"
           whileInView={animations.whileInView}
           initial={animations.twoAndThree}
-          transition={{
-            delay: 0.2,
-          }}
+          transition={{ delay: 0.2 }}
+          onClick={() => handleFormAccess("YOUR_PLACEMENT_FORM_URL")}
+          style={{ cursor: "pointer" }}
         >
           <AiFillAndroid />
-          <span>Placememnt/Internship</span>
+          <span>Placement/Internship</span>
         </motion.div>
+
         <motion.div
           className="serviceBox4"
           whileInView={animations.whileInView}
           initial={animations.four}
+          onClick={() => handleFormAccess("YOUR_CHATROOM_URL")}
+          style={{ cursor: "pointer" }}
         >
           <AiFillWindows />
           <span>Chat Rooms</span>
