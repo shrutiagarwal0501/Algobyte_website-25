@@ -120,3 +120,9 @@
     animation: animateSvg 0.7s infinite linear alternate;
   }
 }
+#home a {
+  cursor: pointer;
+  pointer-events: auto !important;
+  z-index: 10;
+  position: relative;
+}

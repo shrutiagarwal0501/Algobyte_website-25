@@ -63,20 +63,17 @@ const Home = ({ ratio }) => {
 
           <div>
             <a href="mailto:algobyte@banasthali.in">Connect</a>
-            <a href="#About">
+            <a href="#about">
               About us <BsArrowUpRight />
             </a>
           </div>
 
           <article>
             <p>
-              +
-              {ratio < 2 && (
-                <motion.span
+              +<motion.span
                   whileInView={animationClientsCount}
                   ref={clientCount}
                 ></motion.span>
-              )}
             </p>
             <span>Members</span>
           </article>
@@ -84,15 +81,12 @@ const Home = ({ ratio }) => {
           <aside>
             <article>
               <p>
-                +
-                {ratio < 2 && (
-                  <motion.span
+                +<motion.span
                     ref={projectCount}
                     whileInView={animationProjectsCount}
                   >
                     13+
                   </motion.span>
-                )}
               </p>
               <span>Events</span>
             </article>

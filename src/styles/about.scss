@@ -1,46 +1,100 @@
 #about {
-  padding: 8rem;
   width: 100%;
-  padding: 4rem 13.33vmax;
-  margin: auto;
-  border-radius: 16px;
-  >h2 {
-    font: 700 2.5rem "Open Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  background: #f8f8ff; // very light clean background
+
+  .about-container {
+    max-width: 900px;
+    background: #ffffff;
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  h2 {
     text-align: center;
-    width: fit-content;
-    border-bottom: 1px solid #16161698;
-    padding: 0.5rem;
-    margin: 14px auto;
-}
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #2b2b2b;
+    font-weight: 700;
+    position: relative;
 
-  section {
-    margin: 64px;
-    background: #292b46;
-    width: 700px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #6a5acd; // soft purple accent
+      display: block;
+      margin: 0.6rem auto 0;
+      border-radius: 8px;
+    }
+  }
 
-    article {
-      >h3 {
-        font: 700 1.7rem ;
-        font-family: "Open Sans", sans-serif;
-        line-height: 1.6;
-        color: #fef2f2;
+  article {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      color: #3a3a3a;
+      font-weight: 600;
+      position: relative;
+
+      &::before {
+        margin-right: 10px;
+        font-size: 1.3rem;
       }
-      p, ul {
-        font: 14.14px;
-        line-height: 1.6;
-        color: #fef2f2;
-        font-family: "Open Sans", sans-serif
-      }
+    }
 
-      ul {
-        margin-left: 1.5rem;
-        list-style: disc;
+    ul {
+      margin: 1.1rem 0 1.5rem 1rem;
+
+      li {
+        margin-bottom: 0.6rem;
+        padding-left: 6px;
+        transition: 0.3s ease;
+        cursor: default;
+
+        &:hover {
+          transform: translateX(6px);
+        }
       }
     }
   }
-} 
-  
+}
+
+/* Smooth Fade Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #about .about-container {
+    padding: 2rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  article {
+    font-size: 1rem;
+  }
+}
