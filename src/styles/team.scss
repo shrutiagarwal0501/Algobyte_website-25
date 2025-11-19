@@ -1,0 +1,22 @@
+$text2: "Open Sans", sans-serif;
+
+.team {
+    padding: 3rem 5rem;
+}
+
+.team h2 {
+    text-align: center;
+    font: 700 2.5rem $text2;
+}
+
+h3 {
+    font-size: 1.7rem;
+    margin: 3rem 0 1.5rem 0;
+}
+
+.team-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 1rem 0;
+}
