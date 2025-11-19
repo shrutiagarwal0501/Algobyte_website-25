@@ -10,8 +10,10 @@ import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import GlobalStyle from './global.scss';
+import Team from "./components/Team";
+import { createBrowserRouter } from "react-router-dom";
 
-function App() {
+export function App() {
   <GlobalStyle /> 
   const [menuOpen, setMenuOpen] = useState(false);
   const [ratio, setRatio] = useState(window.innerWidth / window.innerHeight);
@@ -44,4 +46,14 @@ function App() {
   );
 }
 
-export default App;
+export const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+    },
+    {
+        path: "/team",
+        element: <Team />,
+    },
+]);
+
