@@ -1,12 +1,31 @@
 import React from "react";
 import TeamMember from "./TeamMember";
 import "../styles/team.scss";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Team = () => {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        // When hash changes, try to scroll to the element
+        if (hash) {
+            const element = document.querySelector(hash);
+
+            if (element) {
+                // Smooth scroll to the element
+                element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        }
+    }, [hash]);
+    
     return (
         <div className="team">
             <h2>Meet Our Team</h2>
-            <h3>Leads</h3>
+            <h3 id="leads">Leads</h3>
             <div className="team-row">
                 <TeamMember
                     name="Shruti Agarwal"
@@ -40,7 +59,7 @@ const Team = () => {
                     image={"/team-member-images/Ananya Sharma.jpg"}
                 />
             </div>
-            <h3>Technical Team</h3>
+            <h3 id="tech-team">Technical Team</h3>
             <div className="team-row">
                 <TeamMember
                     name="Vedanshi Awasthi"
@@ -112,7 +131,7 @@ const Team = () => {
                     image={"/team-member-images/Sheril Shrivastava.png"}
                 />
             </div>
-            <h3>Event Management Team</h3>
+            <h3 id="event-team">Event Management Team</h3>
             <div className="team-row">
                 <TeamMember
                     name="Ishi Kesarwani"
@@ -189,7 +208,7 @@ const Team = () => {
                     customClass={"image-position-top"}
                 />
             </div>
-            <h3>Graphic Design Team</h3>
+            <h3 id="graphic-team">Graphic Design Team</h3>
             <div className="team-row">
                 <TeamMember
                     name="Shikha Chaturvedi"
@@ -226,7 +245,6 @@ const Team = () => {
                     linkedin="https://www.linkedin.com/in/kritika-paliwal-1065073750kri"
                     image={"/team-member-images/Kritika Paliwal.jpg"}
                 />
-                {/* TODO: image */}
                 <TeamMember
                     name="Vatsala Tripathi"
                     memberClass="MCA 2nd Year"
@@ -246,7 +264,7 @@ const Team = () => {
                     image={"/team-member-images/Mokshika Bhardwaj.jpg"}
                 />
             </div>
-            <h3>Content Team</h3>
+            <h3 id="content-team">Content Team</h3>
             <div className="team-row">
                 <TeamMember
                     name="Vasundhara Chhilar"
