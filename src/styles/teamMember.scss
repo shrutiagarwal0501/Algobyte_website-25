@@ -1,0 +1,39 @@
+.team-member-card {
+    font-size: 1.1rem;
+    border-radius: 30px;
+    background-color: white;
+    overflow: hidden;
+    // padding: 0 1rem 0.3rem 1rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+
+.team-member-card a {
+    font-size: 1.7rem;
+    color: #333;
+}
+
+.member-details {
+    padding: 1.5rem;
+}
+
+.member-class {
+    margin: 0.5rem 0;
+}
+
+.member-image {
+    aspect-ratio: 4 / 3;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-position-top {
+    object-position: top;
+}

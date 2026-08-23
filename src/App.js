@@ -9,24 +9,25 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
-import GlobalStyle from './global.scss';
+import './global.scss';
+import Team from "./components/Team";
+import { createBrowserRouter } from "react-router-dom";
 
-function App() {
-  <GlobalStyle /> 
+export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [ratio, setRatio] = useState(window.innerWidth / window.innerHeight);
   useEffect(() => {
     const resizeRatio = () => {
       setRatio(window.innerWidth / window.innerHeight);
     };
-
+    
     window.addEventListener("resize", resizeRatio);
-
+    
     return () => {
       window.removeEventListener("resize", resizeRatio);
     };
   }, [ratio]);
-
+  
   return (
     <>
       <HeaderPhone menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -44,4 +45,14 @@ function App() {
   );
 }
 
-export default App;
+export const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+    },
+    {
+        path: "/team",
+        element: <Team />,
+    },
+]);
+
