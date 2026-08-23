@@ -1,53 +1,62 @@
 #testimonial {
   width: 100%;
-  padding: $p;
+  padding: 2rem 0;
   background-color: $color4;
   color: $color5;
 
-  > h2 {
-    font: 700 2.5rem $text2;
+  h2 {
+    font: 700 2.5rem var(--text2);
     text-align: center;
     margin-bottom: 3rem;
   }
 
-  > section {
+  section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem;
     width: 80%;
     margin: auto;
-    height: 40rem;
-    padding: 8rem;
     background-color: $color1;
-    gap: 20px;
+    padding: 3rem 2rem;
 
-    > article {
-      height: 100%;
-      width: 30%;
+    /* Make Link behave like a card wrapper */
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    article {
+      width: 300px;
       background-color: $color4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      padding: 3rem 1.5rem 2rem;
+      border-radius: 10px;
       position: relative;
+      text-align: center;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+
       img {
         top: 0%;
-        position: absolute;
-        width: 100px;
-        height: 100px;
+        position: relative;
+        width: 60px;
+        height: 60px;
         object-fit: contain;
         border-radius: 50%;
         transform: translateY(-50%);
       }
 
       p {
-        letter-spacing: 2px;
-        margin: 20px 0;
+        margin-top: 1rem;
+        letter-spacing: 1px;
         font-size: 0.9rem;
-        line-height: 160%;
-        text-align: center;
-        overflow: hidden;
+        line-height: 150%;
       }
     }
   }
