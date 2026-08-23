@@ -12,6 +12,9 @@ import { useEffect, useState } from "react";
 import './global.scss';
 import Team from "./components/Team";
 import { createBrowserRouter } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+import ResetPassword from "./pages/ResetPassword";
 
 export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,14 +23,11 @@ export function App() {
     const resizeRatio = () => {
       setRatio(window.innerWidth / window.innerHeight);
     };
-    
     window.addEventListener("resize", resizeRatio);
-    
     return () => {
       window.removeEventListener("resize", resizeRatio);
     };
   }, [ratio]);
-  
   return (
     <>
       <HeaderPhone menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
@@ -54,5 +54,16 @@ export const appRouter = createBrowserRouter([
         path: "/team",
         element: <Team />,
     },
+    {
+        path: "/signin",
+        element: <Signin />,
+    },
+    {
+        path: "/signup",
+        element: <Signup />,
+    },
+    {
+        path: "/reset-password/:token",
+        element: <ResetPassword />,
+    },
 ]);
-
