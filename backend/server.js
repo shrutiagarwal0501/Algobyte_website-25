@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -30,7 +32,7 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/algobyteDB")
+  .connect(process.env.MONGODB_URI)
   .then(() => logger.info("MongoDB connected successfully"))
   .catch((err) => logger.error("MongoDB connection error:", err.message));
 
@@ -106,7 +108,8 @@ app.get('/work/past', async (req, res) => {
   }
 });
 
-// Start server
-app.listen(3001, () => {
-  logger.info("Server running on http://localhost:3001");
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  logger.info(`Server running on http://localhost:${PORT}`);
 });
