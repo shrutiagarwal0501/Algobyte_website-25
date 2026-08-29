@@ -7,6 +7,7 @@ import Services from "./components/Services";
 import Testimonial from "./components/Testimonial";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Resources from "./components/Resources";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
 import './global.scss';
@@ -38,6 +39,7 @@ export function App() {
       <Work />
       <Timeline />
       <Testimonial />
+      <Resources />
       <Contact />
       <Footer />
       <Toaster />
