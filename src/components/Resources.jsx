@@ -6,7 +6,6 @@ import "../styles/resource.scss";
 const Resources = () => {
   return (
     <>
-      <Header />
 
       <div className="resource-page" style={{ fontFamily: "Poppins, sans-serif" }}>
         <main className="container">
@@ -97,7 +96,6 @@ const Resources = () => {
         </main>
       </div>
 
-      <Footer />
     </>
   );
 };

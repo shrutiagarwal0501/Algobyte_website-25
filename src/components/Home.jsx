@@ -5,21 +5,7 @@ import { BsArrowUpRight, BsChevronDown } from "react-icons/bs";
 import me from "../assets/image.png";
 
 const Home = ({ ratio }) => {
-  const clientCount = useRef(null);
-  const projectCount = useRef(null);
-
-  const animationClientsCount = () => {
-    animate(0, 1000, {
-      duration: 1,
-      onUpdate: (v) => (clientCount.current.textContent = v.toFixed()),
-    });
-  };
-  const animationProjectsCount = () => {
-    animate(0, 15, {
-      duration: 1,
-      onUpdate: (v) => (projectCount.current.textContent = v.toFixed()),
-    });
-  };
+  
 
   const animations = {
     h1: {
@@ -68,34 +54,6 @@ const Home = ({ ratio }) => {
             </a>
           </div>
 
-          <article>
-            <p>
-              +<motion.span
-                  whileInView={animationClientsCount}
-                  ref={clientCount}
-                ></motion.span>
-            </p>
-            <span>Members</span>
-          </article>
-
-          <aside>
-            <article>
-              <p>
-                +<motion.span
-                    ref={projectCount}
-                    whileInView={animationProjectsCount}
-                  >
-                    13+
-                  </motion.span>
-              </p>
-              <span>Events</span>
-            </article>
-
-            <article data-special>
-              <p>Contact</p>
-              <span>algobyte@banasthali.in</span>
-            </article>
-          </aside>
         </div>
       </section>
       <section>
