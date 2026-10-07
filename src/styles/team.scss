@@ -1,22 +1,462 @@
 $text2: "Open Sans", sans-serif;
 
 .team {
-    padding: 3rem 5rem;
-}
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  background: #f5f2ef;
+  color: #25253d;
+  overflow: hidden;
 
-.team h2 {
-    text-align: center;
-    font: 700 2.5rem $text2;
-}
+  /* =========================
+     HERO
+  ========================= */
 
-h3 {
-    font-size: 1.7rem;
-    margin: 3rem 0 1.5rem 0;
-}
+  .team-hero {
+    position: relative;
+    min-height: 75vh;
+    padding: 9rem 8% 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    background: #25253d;
+    color: #f5f2ef;
 
-.team-row {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      top: -300px;
+      right: -180px;
+      border: 1px solid rgba(245, 242, 239, 0.15);
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      bottom: -250px;
+      left: -170px;
+      border: 1px solid rgba(245, 242, 239, 0.1);
+      border-radius: 50%;
+    }
+  }
+
+  .team-eyebrow {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1.5rem;
+    font: 600 0.75rem $text2;
+    letter-spacing: 3px;
+    color: #b9b5ae;
+  }
+
+  .team-hero h2 {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font: 700 clamp(4rem, 9vw, 8.5rem) $text2;
+    line-height: 0.9;
+    letter-spacing: -6px;
+    color: #f5f2ef;
+
+    span {
+      display: block;
+      color: #aaa6a0;
+    }
+  }
+
+  .team-hero p {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+    margin: 2rem 0 0;
+    font: 400 1rem/1.8 $text2;
+    color: #c9c5be;
+  }
+
+  .team-scroll {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+
+    span {
+      font: 600 0.65rem $text2;
+      letter-spacing: 2px;
+      color: #aaa6a0;
+    }
+
+    div {
+      width: 70px;
+      height: 1px;
+      background: #aaa6a0;
+    }
+  }
+
+  /* =========================
+     TEAM SECTIONS
+  ========================= */
+
+  .team-sections {
+    position: relative;
+    z-index: 2;
+  }
+
+  .team-section {
+    padding: 7rem 6%;
+    background: #f5f2ef;
+  }
+
+  .team-section-alt {
+    background: #25253d;
+    color: #f5f2ef;
+
+    .team-number {
+      color: #77758b;
+    }
+
+    .team-title {
+      > span {
+        color: #9996a8;
+      }
+
+      h3 {
+        color: #f5f2ef;
+      }
+
+      p {
+        color: #bdb9c5;
+      }
+    }
+
+    .team-row {
+      .team-member-card {
+        background: #313149;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+        .member-details {
+          background: #313149;
+        }
+
+        .member-name {
+          color: #f5f2ef;
+        }
+
+        .member-class {
+          color: #aaa7b5;
+        }
+
+        .member-details::before {
+          background: #aaa6a0;
+        }
+
+        a {
+          background: #f5f2ef;
+          color: #25253d;
+        }
+
+        a:hover {
+          background: #ffffff;
+        }
+      }
+    }
+  }
+
+  /* =========================
+     SECTION HEADING
+  ========================= */
+
+  .team-section-heading {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: 100px 1fr;
     gap: 2rem;
-    margin: 1rem 0;
+    margin-bottom: 3.5rem;
+    align-items: start;
+  }
+
+  .team-number {
+    padding-top: 0.3rem;
+    font: 600 0.9rem $text2;
+    letter-spacing: 2px;
+    color: #99958e;
+  }
+
+  .team-title {
+    max-width: 750px;
+
+    > span {
+      display: block;
+      margin-bottom: 0.75rem;
+      font: 600 0.65rem $text2;
+      letter-spacing: 3px;
+      color: #99958e;
+    }
+
+    h3 {
+      margin: 0;
+      font: 700 clamp(2.2rem, 4vw, 4rem) $text2;
+      line-height: 1;
+      letter-spacing: -2px;
+      color: #25253d;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 1.2rem 0 0;
+      font: 400 0.95rem/1.7 $text2;
+      color: #777887;
+    }
+  }
+
+  /* =========================
+     MEMBER GRID
+  ========================= */
+
+  .team-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+  }
+}
+
+/* =========================
+   MEMBER CARD
+========================= */
+
+.team-member-card {
+  position: relative;
+  width: 100%;
+  border-radius: 0;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(37, 37, 61, 0.08);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(37, 37, 61, 0.16);
+  }
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.member-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+  overflow: hidden;
+  background: #dedbd7;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      rgba(37, 37, 61, 0.25)
+    );
+    pointer-events: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+}
+
+.team-member-card:hover .member-image img {
+  transform: scale(1.06);
+}
+
+.image-position-top {
+  object-position: top;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.member-details {
+  position: relative;
+  padding: 1.4rem 1.3rem 1.5rem;
+  background: #ffffff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.3rem;
+    width: 35px;
+    height: 3px;
+    background: #25253d;
+    transition: width 0.3s ease;
+  }
+}
+
+.team-member-card:hover .member-details::before {
+  width: 70px;
+}
+
+.member-name {
+  margin: 0;
+  padding-top: 0.2rem;
+  font: 700 1.1rem $text2;
+  line-height: 1.3;
+  color: #25253d;
+}
+
+.member-class {
+  margin: 0.5rem 0 1rem;
+  font: 400 0.8rem/1.5 $text2;
+  color: #777887;
+}
+
+/* =========================
+   LINKEDIN
+========================= */
+
+.team-member-card a {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25253d;
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.08);
+    background: #44446a;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media screen and (max-width: 1050px) {
+  .team {
+    .team-hero {
+      min-height: 65vh;
+      padding: 8rem 6%;
+    }
+
+    .team-section {
+      padding: 6rem 5%;
+    }
+
+    .team-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 700px) {
+  .team {
+    .team-hero {
+      min-height: 70vh;
+      padding: 7rem 1.5rem 5rem;
+    }
+
+    .team-hero h2 {
+      font-size: 4rem;
+      letter-spacing: -3px;
+    }
+
+    .team-section {
+      padding: 5rem 1.25rem;
+    }
+
+    .team-section-heading {
+      grid-template-columns: 45px 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .team-title h3 {
+      font-size: 2.1rem;
+      letter-spacing: -1px;
+    }
+
+    .team-title p {
+      font-size: 0.85rem;
+    }
+
+    .team-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .team-member-card {
+      border-radius: 0;
+    }
+
+    .member-details {
+      padding: 1rem;
+
+      &::before {
+        left: 1rem;
+      }
+    }
+
+    .member-name {
+      font-size: 0.95rem;
+    }
+
+    .member-class {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media screen and (max-width: 450px) {
+  .team {
+    .team-hero h2 {
+      font-size: 3.2rem;
+    }
+
+    .team-row {
+      grid-template-columns: 1fr;
+    }
+
+    .team-section-heading {
+      grid-template-columns: 35px 1fr;
+    }
+  }
+
+  .member-image {
+    aspect-ratio: 4 / 3;
+  }
 }

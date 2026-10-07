@@ -53,7 +53,7 @@ const Services = () => {
           }}
         >
           <AiFillAndroid />
-          <span>Placememnt/Internship</span>
+          <span>Placement/Internship</span>
         </motion.div>
         <motion.div
           className="serviceBox4"
