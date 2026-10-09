@@ -15,19 +15,51 @@ const Contact = () => {
     e.preventDefault();
     setDisableBtn(true);
     try {
+      const accessKey = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
+
+      // 1. Send email notification via Web3Forms if access key is configured
+      if (accessKey) {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name,
+            email,
+            message,
+            subject: `New Contact Message from ${name} - Algobyte Website`,
+            from_name: "Algobyte Website",
+          }),
+        });
+
+        const data = await response.json();
+        if (!data.success) {
+          console.error("Web3Forms error:", data);
+          throw new Error(data.message || "Failed to send email notification");
+        }
+      } else {
+        console.warn("REACT_APP_WEB3FORMS_ACCESS_KEY is not set. Email notification skipped.");
+      }
+
+      // 2. Also save to Firebase Firestore
       await addDoc(collection(db, "contacts"), {
         name,
         email,
         message,
+        createdAt: new Date().toISOString(),
       });
+
       setName("");
       setEmail("");
       setMessage("");
-      toast.success("Message Sent");
-      setDisableBtn(false);
+      toast.success("Message Sent Successfully!");
     } catch (error) {
-      toast.error("Error");
-      console.log(error);
+      toast.error(error.message || "Failed to send message. Please try again.");
+      console.error(error);
+    } finally {
       setDisableBtn(false);
     }
   };
@@ -91,7 +123,7 @@ const Contact = () => {
             {...animations.button}
             type="submit"
           >
-            Send
+            {disableBtn ? "Sending..." : "Send"}
           </motion.button>
         </motion.form>
       </section>
